@@ -1,0 +1,78 @@
+<html>
+<head>
+  <script src="d3.v4.min.js"
+	  charset="utf-8"></script>
+  <script src="d3-hsv.v0.1.min.js"
+	  charset="utf-8"></script>
+  <script src="d3-contour.v1.min.js"
+	  charset="utf-8"></script>
+  <style type="text/css">
+    h1{
+    color: blue;
+    font-size: 45px;
+    font-family: "Arial, sans-serif";
+    font-weight:normal;
+    }
+    input{
+        width: 60;
+        height: 30;
+        vertical-align: middle;
+    }
+    .basis{
+        width: 300;
+        height: 335;
+        vertical-align: middle;
+    }
+    .legend{
+    width: 80;
+    height: 150;
+    vertical-align: middle;
+    }
+    .lableg{
+    font-size: 20;
+    }
+    td.symbol{
+        font-size: 40;
+    }
+    td{
+        padding-bottom: 20;
+
+    }
+    .line {
+    fill: none;
+    stroke: black;
+    stroke-width: 1;
+    }
+    .axis path,
+    .axis line {
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges;
+    }
+    </style>
+</head>
+<body>
+  <h1>SVD-based Gaussian Process Model (Higdon et al., 2008)</h1>
+  <table class="canvas">
+    <tr>
+        <td class="symbol"><input id="pc1" value="0"> &times </td>
+        <td><svg class="basis" id="b1"></svg></td>
+        <td class="symbol"> + <input id="pc2" value="0">  &times </td>
+        <td> <svg class="basis" id="b2"></svg> </td>
+        <td class="symbol"> + <input id="pc3" value="0"> &times </td>
+        <td><svg class="basis" id="b3"></svg></td>
+        <td class="symbol"> = <svg class="basis" id="predict"><rect /></svg></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td><svg class="basis" id="c1"></svg></td>
+        <td><div class="lableg"> c<sub>1</sub> <br> <svg class="legend" id="legend1"></div></td>
+        <td> <svg class="basis" id="c2"></svg> </td>
+        <td><div class="lableg"> c<sub>2</sub> <br><svg class="legend" id="legend2"></div></td>
+        <td><svg class="basis" id="c3"></svg></td>
+        <td><div class="lableg"> c<sub>3</sub> <br><svg class="legend" id="legend3"></div></td>
+    </tr>
+  </table>
+  <script src="heatmap.js"></script>
+</body>
+</html>
